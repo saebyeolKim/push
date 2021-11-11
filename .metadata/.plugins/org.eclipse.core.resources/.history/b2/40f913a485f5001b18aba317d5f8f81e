@@ -1,0 +1,71 @@
+package com.koreait.listenerTest;
+
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+
+public class KeyListenerTest extends JFrame {
+	
+	public KeyListenerTest() {
+
+		setTitle("KeyListener");
+		setBounds(700, 100, 400, 500);
+		
+		addKeyListener(new KeyListener() {
+//			keyTyped()가 keyReleased() 메소드 보다 먼저 실행된다.
+			@Override
+			public void keyTyped(KeyEvent e) {
+//				System.out.println("키보드를 타이핑 할 때");
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+//				System.out.println("키보드를 누르고 있던 손가락이 떨어질 때");
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+//				System.out.println("키보드를 누르고 있을 때");
+				
+//				getKeyChar() 메소드는 누른 키보드에 해당되는 문자를 얻어온다. => 대소문자 구분해서 얻어온다.
+//				한글이나 눌러도 아무것도 화면에 표시되지 않는 키보드는 아무것도 얻어오지 못한다.
+//				System.out.println(e.getKeyChar());
+				
+//				getKeyCode() 메소드는 누른 키보드에 해당되는 키 코드 값을 얻어온다. => 대소문자를 구분하지 못한다.
+//				아무것도 표시되지 않는 키보드라 하더라도 키에는 각각 고유한 코드값이 할당되어 있으므로 할당된 키 코드를 얻어와 작업한다.
+				System.out.println(e.getKeyCode());
+				
+				switch (e.getKeyCode()) {
+					case 37: case 65:
+						System.out.println("캐릭터가 왼쪽으로 이동합니다.");
+						break;
+						
+				}
+				
+			}
+		});
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		
+		KeyListenerTest window = new KeyListenerTest(); 
+
+	}
+
+
+	
+	
+}
+
+
+
+
+
+

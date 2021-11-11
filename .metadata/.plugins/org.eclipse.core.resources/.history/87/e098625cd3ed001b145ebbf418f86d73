@@ -1,0 +1,22 @@
+
+public class ScoreListMain {
+
+	public static void main(String[] args) {
+
+		ScoreList scoreList = new ScoreList();
+		ScoreVO score1 = new ScoreVO("홍길동", 100, 100, 99);
+		ScoreVO score2 = new ScoreVO("임꺽정", 45, 71, 59);
+		ScoreVO score3 = new ScoreVO("장길산", 88, 85, 80);
+		ScoreVO score4 = new ScoreVO("임꺽정", 88, 80, 85);
+		ScoreVO score5 = new ScoreVO("임꺽정", 95, 83, 84);
+		
+		scoreList.addScore(score1);
+		scoreList.addScore(score2);
+		scoreList.addScore(score3);
+		scoreList.addScore(score4);
+		scoreList.addScore(score5);
+		
+		System.out.println(scoreList);
+	}
+
+}

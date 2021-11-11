@@ -1,0 +1,54 @@
+package com.koreait.layoutTest;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JLabel;
+
+//	BorderLayout은 컨테이너를 5부분으로 나누고 컨테이너를 저장한 영역에 배치하는 레이아웃 매니저이다.
+public class BorderLayoutTest extends Frame {	
+	
+	JLabel label = new JLabel("TEXT1");
+	
+	public BorderLayoutTest() {	
+		setTitle("BorderLayout");
+		setBounds(800, 100, 400, 600);
+
+//		BorderLayout을 만들고 적용시킨다. => BorderLayout은 Frame, JFrame의 기본 레이아웃이므로 적용하지 않아도 된다.
+//		BorderLayout border = new BorderLayout();
+//		setLayout(border);
+//		위의 2문장을 아래와 같이 1문장으로 줄여서 사용할 수 있다.
+		setLayout(new BorderLayout());
+		
+		label.setOpaque(true);
+		label.setBackground(Color.PINK);
+		
+//		add(컴포넌트, 방향), 방향을 생략하면 Center가 기본값으로 적용된다.
+		add(label, BorderLayout.NORTH);
+		label.setPreferredSize(new Dimension(200, 100));
+		label.setHorizontalAlignment(JLabel.TOP);
+		label.setVerticalAlignment(JLabel.CENTER);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);		
+			}
+		});
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		BorderLayoutTest window = new BorderLayoutTest();
+	}
+	
+}
+		
+		
+	
+	
+

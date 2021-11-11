@@ -1,0 +1,5 @@
+package com.koreair.inheritance;
+
+public class Child {
+
+}
